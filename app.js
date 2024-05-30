@@ -31,20 +31,59 @@
 // }
 // hitsChanger();
 
-var signUpPassordCheckBox = document.querySelector(
-  "#sign_up_password_checkbox"
-);
-
+var signUpPasswordEye = document.querySelector(".sign_up_password_eye_hide");
 var signUpPassword = document.querySelector("#sign_up_password");
-
-if (signUpPassordCheckBox) {
+function formPasswordShow() {
   try {
-    if (signUpPassordCheckBox.checked == true) {
-      signUpPassword.setAttribute("type", "password");
-    } else {
-      signUpPassword.setAttribute("type", "text");
+    if (signUpPasswordEye) {
+      signUpPasswordEye.addEventListener("click", function () {
+        signUpPasswordEye.classList.toggle("sign_up_password_eye_show");
+        if (signUpPasswordEye.classList.contains("sign_up_password_eye_show")) {
+          signUpPassword.setAttribute("type", "text");
+        } else {
+          signUpPassword.setAttribute("type", "password");
+        }
+      });
     }
   } catch (error) {
     console.log(error);
   }
+}
+formPasswordShow();
+
+var signUpForm = document.querySelector(".game_sign_up_form");
+var userExist = false;
+
+function signUp() {
+  var signUpFormData = new FormData(signUpForm);
+  var signUpUserInfo = {
+    name: signUpFormData.get("name"),
+    email: signUpFormData.get("email"),
+    password: signUpFormData.get("password"),
+  };
+  if (
+    !signUpUserInfo.name ||
+    !signUpUserInfo.email ||
+    !signUpUserInfo.password
+  ) {
+    console.log("fill");
+  } else if (signUpPassword.value.lenght < 8) {
+    console.log("Password Must Be 8 Least");
+  } else {
+    var existingUsers = JSON.parse(localStorage.getItem("Logged")) || [];
+    existingUsers.push(signUpUserInfo);
+    userExist = true;
+    if (userExist) {
+      signUpForm.reset();
+      localStorage.setItem("Logged", JSON.stringify(existingUsers));
+    } else {
+      userExist = false;
+    }
+  }
+}
+if (signUpForm) {
+  signUpForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    signUp();
+  });
 }
