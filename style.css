@@ -11,7 +11,7 @@
 }
 
 ::selection {
-  background-color: rgb(72, 104, 72);
+  background-color: #486848;
   color: #fff;
 }
 html,
@@ -65,7 +65,7 @@ body {
   padding: 20px;
   gap: 20px 20px;
   color: #ffff;
-  background-color: rgb(72, 104, 72);
+  background-color: #486848;
 }
 .game_header_hit,
 .game_header_timer,
@@ -105,7 +105,7 @@ body {
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: rgb(72, 104, 72);
+  background-color: #486848;
   color: #fff;
   border-radius: 50%;
   font-weight: 500;
@@ -115,7 +115,8 @@ body {
   background-color: rgb(50, 75, 50);
 }
 
-.game_sign_up_form {
+.game_sign_up_form,
+.game_sign_in_form {
   width: 100%;
   height: 100%;
   padding: 20px;
@@ -123,6 +124,10 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+}
+.form-heading {
+  color: #486848;
+  font-weight: 900;
 }
 
 label {
@@ -134,16 +139,20 @@ label {
   gap: 10px;
   font-size: 14px;
   font-weight: 900;
+  color: #486848;
 }
 
 #sign_up_name,
 #sign_up_email,
-#sign_up_password {
+#sign_up_password,
+#sign_in_name,
+#sign_in_email,
+#sign_in_password {
   width: 50%;
   border: 0;
-  border-bottom: 2px solid rgb(72, 104, 72);
+  border-bottom: 2px solid #486848;
   padding: 10px 10px;
-  color: rgb(72, 104, 72);
+  color: #486848;
   font-size: 16px;
   font-weight: 900;
 }
@@ -151,8 +160,9 @@ label {
 input:focus {
   outline: none;
 }
+
 input::placeholder {
-  color: 2px solid rgb(72, 104, 72);
+  color: 2px solid #486848;
   font-size: 13px;
 }
 
@@ -161,7 +171,27 @@ input:invalid {
 }
 
 input:valid {
-  border-bottom: 2px solid rgb(72, 104, 72);
+  border-bottom: 2px solid #486848;
+}
+.sign_up_password_label {
+  position: relative;
+}
+
+.sign_up_password_checkbox,
+.sign_in_password_checkbox{
+  position: absolute;
+  left: 73%;
+}
+
+.sign_up_submit,
+.sign_in_submit {
+  background-color: #486848;
+  color: #ffff;
+  font-weight: 900;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 @media (max-width: 800px) {
@@ -202,9 +232,33 @@ input:valid {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: rgb(72, 104, 72);
+    background-color: #486848;
     color: #fff;
     border-radius: 50%;
     font-weight: 500;
+  }
+
+  #sign_up_name,
+  #sign_up_email,
+  #sign_up_password,
+  #sign_in_name,
+  #sign_in_email,
+  #sign_in_password {
+    width: 80%;
+  }
+
+  .sign_up_password-checkbox,
+  .sign_in_password-checkbox {
+    left: 86%;
+  }
+}
+@media (max-width: 360px) {
+  #sign_up_name,
+  #sign_up_email,
+  #sign_up_password,
+  #sign_in_name,
+  #sign_in_email,
+  #sign_in_password {
+    width: 100%;
   }
 }

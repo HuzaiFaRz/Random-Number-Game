@@ -1,8 +1,8 @@
-// var gamebody = document.querySelector(".game_body");
+// var gameBody = document.querySelector(".game_body");
 
-// var gametimer = document.querySelector("#game_timer");
+// var gameTimer = document.querySelector("#game_timer");
 // var timerValue = 60;
-// var gamehit = document.querySelector("#game_hit");
+// var gameHit = document.querySelector("#game_hit");
 
 // function makeBubble() {
 //   var bubbles = "";
@@ -10,7 +10,7 @@
 //     var bubbleNumber = Math.floor(Math.random() * 10);
 //     bubbles += `<div class="bubble">${bubbleNumber}</div>`;
 //   }
-//   gamebody.innerHTML = bubbles;
+//   gameBody.innerHTML = bubbles;
 // }
 // makeBubble();
 
@@ -18,7 +18,7 @@
 //   var timerInt = setInterval(function () {
 //     if (timerValue >= 0) {
 //       timerValue--;
-//       gametimer.textContent = timerValue;
+//       gameTimer.textContent = timerValue;
 //     } else {
 //       timerInt = clearInterval();
 //     }
@@ -27,6 +27,24 @@
 // timerRunner();
 // function hitsChanger() {
 //   var hitRandom = Math.floor(Math.random() * 10);
-//   gamehit.textContent = hitRandom;
+//   gameHit.textContent = hitRandom;
 // }
 // hitsChanger();
+
+var signUpPassordCheckBox = document.querySelector(
+  "#sign_up_password_checkbox"
+);
+
+var signUpPassword = document.querySelector("#sign_up_password");
+
+if (signUpPassordCheckBox) {
+  try {
+    if (signUpPassordCheckBox.checked == true) {
+      signUpPassword.setAttribute("type", "password");
+    } else {
+      signUpPassword.setAttribute("type", "text");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
