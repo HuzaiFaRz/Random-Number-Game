@@ -205,6 +205,12 @@ input:valid {
   left: 72%;
   bottom: 20%;
 }
+
+.form_error {
+  color: red;
+  font-weight: 900;
+}
+
 .sign_up_submit,
 .sign_in_submit {
   background-color: #486848;
@@ -269,9 +275,15 @@ input:valid {
     width: 80%;
   }
 
-  .sign_up_password-checkbox,
-  .sign_in_password-checkbox {
-    left: 86%;
+  .sign_up_password_eye_hide,
+  .sign_in_password_eye_hide {
+    left: 85%;
+    bottom: 20%;
+  }
+  .sign_up_password_eye_show,
+  .sign_in_password_eye_show {
+    left: 85%;
+    bottom: 20%;
   }
 }
 @media (max-width: 360px) {

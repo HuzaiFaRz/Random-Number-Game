@@ -52,6 +52,7 @@ function formPasswordShow() {
 formPasswordShow();
 
 var signUpForm = document.querySelector(".game_sign_up_form");
+var formError = document.querySelector(".form_error");
 var userExist = false;
 
 function signUp() {
@@ -61,24 +62,32 @@ function signUp() {
     email: signUpFormData.get("email"),
     password: signUpFormData.get("password"),
   };
+
+  if (signUpPassword.value.lenght < 8) {
+    formError.innerHTML = "Password Must Be 8 Least";
+  }
+
   if (
     !signUpUserInfo.name ||
     !signUpUserInfo.email ||
     !signUpUserInfo.password
   ) {
-    console.log("fill");
-  } else if (signUpPassword.value.lenght < 8) {
-    console.log("Password Must Be 8 Least");
+    formError.innerHTML = "Fill All Field Please";
   } else {
     var existingUsers = JSON.parse(localStorage.getItem("Logged")) || [];
     existingUsers.push(signUpUserInfo);
     userExist = true;
     if (userExist) {
-      signUpForm.reset();
       localStorage.setItem("Logged", JSON.stringify(existingUsers));
+      signUpForm.reset();
+      formError.innerHTML = " Sign Up SuccessFully";
+      formError.style.color = "#486848";
     } else {
       userExist = false;
+      formError.innerHTML = " ";
     }
+
+    formError.innerHTML = " ";
   }
 }
 if (signUpForm) {
