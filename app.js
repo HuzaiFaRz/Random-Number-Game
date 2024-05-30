@@ -68,24 +68,34 @@ function signUp() {
     !signUpUserInfo.email ||
     !signUpUserInfo.password
   ) {
-    formError.innerHTML = "Fill All Field Please";
-  } else if (signUpPassword.value.lenght < 8) {
-    formError.innerHTML = "Password Must Be 8 Least";
+    formError.textContent = "Fill All Field Please";
+    formError.style.color = "red";
+  } else if (signUpFormData.get("password").length < 8) {
+    formError.textContent = "Password Must Be 8 Least";
+    formError.style.color = "red";
   } else {
-    var existingUsers = JSON.parse(localStorage.getItem("Logged")) || [];
-    existingUsers.push(signUpUserInfo);
-    userExist = true;
-    if (userExist) {
-      localStorage.setItem("Logged", JSON.stringify(existingUsers));
-      signUpForm.reset();
-      formError.innerHTML = " Sign Up SuccessFully";
-      formError.style.color = "#486848";
+    if (
+      signUpUserInfo.email == existingUsers ||
+      signUpUserInfo.password == existingUsers
+    ) {
+      formError.textContent = "User Already Exist";
+      formError.style.color = "red";
     } else {
-      userExist = false;
-      formError.innerHTML = " ";
+      userExist = true;
+      if (userExist) {
+        var existingUsers = JSON.parse(localStorage.getItem("Logged")) || [];
+        existingUsers.push(signUpUserInfo);
+        var newUser = localStorage.setItem(
+          "Logged",
+          JSON.stringify(existingUsers)
+        );
+        signUpForm.reset();
+        formError.textContent = " Sign Up SuccessFully";
+        formError.style.color = "#486848";
+      } else {
+        userExist = false;
+      }
     }
-
-    formError.innerHTML = " ";
   }
 }
 if (signUpForm) {
