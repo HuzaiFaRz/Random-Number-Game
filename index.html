@@ -4,57 +4,65 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bubble Game</title>
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="main">
-      <div id="panel">
-        <div id="ptop">
-          <div id="elem">
-            <h2>Hit</h2>
-            <div id="box" class="hit">5</div>
+    <div class="main">
+      <div class="game">
+        <div class="game_header">
+          <div class="game_header_hit">
+            <h2 class="game_header_heading">Hit</h2>
+            <div class="game_header-box" id="game_hit">5</div>
           </div>
-          <div id="elem">
-            <h2>Timer</h2>
-            <div id="box" class="timer">60</div>
+          <div class="game_header_timer">
+            <h2 class="game_header_heading">Timer</h2>
+            <div class="game_header-box" id="game_timer">60</div>
           </div>
-          <div id="elem">
-            <h2>Score</h2>
-            <div id="box" class="score">8</div>
+          <div class="game_header_score">
+            <h2 class="game_header_heading">Score</h2>
+            <div class="game_header-box" id="game_score">8</div>
           </div>
         </div>
-        <div id="pbottom"></div>
+        <div class="game_body"></div>
       </div>
-      <div id="signup">
-        <form class="signup-form">
-          <label for="signupemail" class="signupemaillabel"
+
+      <div class="game_sign_up">
+        <form class="game_sign_up_form">
+          <label for="sign_up_name" class="sign_up_name_label"
+            >Name
+            <input
+              type="text"
+              placeholder="Name.."
+              name="name"
+              id="sign_up_name"
+            />
+          </label>
+          <label for="sign_up_email" class="sign_up_email_label"
             >Email
             <input
               type="email"
               placeholder="Email.."
               name="email"
-              id="signupemail"
+              id="sign_up_email"
             />
           </label>
-          <label for="signupname" class="signupnamelabel"
-            >Email
-            <input
-              type="text"
-              placeholder="Name.."
-              name="name"
-              id="signupname"
-            />
-          </label>
-          <label for="signuppassword" class="signuppasswordlabel"
-            >Email
+
+          <label for="sign_up_password" class="sign_up_password_label"
+            >Password
             <input
               type="password"
-              placeholder="Password"
+              placeholder="Password.."
               name="password"
-              id="signuppassword"
+              id="sign_up_password"
             />
           </label>
+
+          <input
+            type="checkbox"
+            name="checkbox"
+            id="sign_up_password-checkbox"
+          />
+          <input type="submit" class="sign_up_submit" value="Sign Up" />
         </form>
       </div>
     </div>

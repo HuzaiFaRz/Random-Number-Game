@@ -1,55 +1,87 @@
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
-
+@font-face {
+  font-family: comfortaa;
+  src: url(Comfortaa-VariableFont_wght.ttf);
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Comfortaa", sans-serif;
+  transition: all 0.3s linear;
+}
+
+::selection {
+  background-color: rgb(72, 104, 72);
+  color: #fff;
 }
 html,
 body {
   width: 100%;
   height: 100%;
 }
-#main {
+.main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
   background-color: rgb(155, 184, 155);
 }
-#panel {
+.game {
   overflow: hidden;
   width: 80%;
   height: 80%;
-  border-radius: 5px;
+  border-radius: 50px 0 0 0;
   background-color: #fff;
+  box-shadow: 10px 10px 10px #000;
+  visibility: hidden;
+  opacity: 0;
+  scale: 0;
+  z-index: -1111;
 }
-#ptop {
+
+.game_sign_up {
+  overflow: hidden;
+  width: 80%;
+  height: 80%;
+  border-radius: 50px 0 0 0;
+  background-color: #fff;
+  box-shadow: 10px 10px 10px #000;
+  position: absolute;
+  visibility: visible;
+  opacity: 1;
+  scale: 1;
+  z-index: 1111;
+}
+
+.game_header {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 20px;
-  gap: 20px;
+  gap: 20px 20px;
   color: #ffff;
-  width: 100%;
   background-color: rgb(72, 104, 72);
 }
-#elem {
+.game_header_hit,
+.game_header_timer,
+.game_header_score {
+  width: 26.666666666666668%;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 50px;
+  justify-content: space-evenly;
+  text-align: center;
 }
-#elem > h2 {
+.game_header_heading {
   font-weight: 900;
   font-size: 22px;
 }
-#box {
+.game_header-box {
   color: rgb(155, 184, 155);
   font-weight: 600;
   font-size: 25px;
@@ -57,7 +89,7 @@ body {
   background-color: #fff;
   border-radius: 5px;
 }
-#pbottom {
+.game_body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -82,32 +114,97 @@ body {
   cursor: pointer;
   background-color: rgb(50, 75, 50);
 }
-@media (max-width: 1100px) {
-  #panel {
-    width: 95%;
-    height: 95%;
+
+.game_sign_up_form {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+#sign_up_name,
+#sign_up_email,
+#sign_up_password {
+  width: 50%;
+  border: 0;
+  border-bottom: 2px solid rgb(72, 104, 72);
+  padding: 10px 10px;
+  color: rgb(72, 104, 72);
+  font-size: 16px;
+  font-weight: 900;
+}
+
+input:focus {
+  outline: none;
+}
+input::placeholder {
+  color: 2px solid rgb(72, 104, 72);
+  font-size: 13px;
+}
+
+input:invalid {
+  border-bottom: 2px solid red;
+}
+
+input:valid {
+  border-bottom: 2px solid rgb(72, 104, 72);
+}
+
+@media (max-width: 800px) {
+  .game {
+    width: 90%;
+    height: 90%;
+    border-radius: 30px 0 0 0;
   }
-  #ptop {
-    gap: 30px;
-  }
-  #elem {
-    gap: 10px;
-  }
-  #elem > h2 {
-    padding-left: 0;
-    font-size: 18px;
-  }
-  #box {
-    font-size: 20px;
-    padding: 5px 10px;
-  }
-  #pbottom {
-    gap: 6px;
+  .game_header {
     padding: 10px;
+    gap: 10px 10px;
+  }
+  .game_header_hit,
+  .game_header_timer,
+  .game_header_score {
+    width: 100%;
+  }
+  .game_header_heading {
+    font-size: 20px;
+  }
+  .game_header-box {
+    font-size: 20px;
+    padding: 8px 15px;
+  }
+  .game_body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    width: 100%;
+    height: calc(100% - 100px);
   }
   .bubble {
-    width: 35px;
-    height: 35px;
-    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(72, 104, 72);
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 500;
   }
 }
