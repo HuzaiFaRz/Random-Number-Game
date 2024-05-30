@@ -63,16 +63,14 @@ function signUp() {
     password: signUpFormData.get("password"),
   };
 
-  if (signUpPassword.value.lenght < 8) {
-    formError.innerHTML = "Password Must Be 8 Least";
-  }
-
   if (
     !signUpUserInfo.name ||
     !signUpUserInfo.email ||
     !signUpUserInfo.password
   ) {
     formError.innerHTML = "Fill All Field Please";
+  } else if (signUpPassword.value.lenght < 8) {
+    formError.innerHTML = "Password Must Be 8 Least";
   } else {
     var existingUsers = JSON.parse(localStorage.getItem("Logged")) || [];
     existingUsers.push(signUpUserInfo);
