@@ -42,16 +42,10 @@ function gameSignUpShow() {
 }
 
 function gameShow() {
-  game.style.transition = "all 0.3s linear";
-  game.style.visibility = "visible";
-  game.style.opacity = "1";
-  game.style.zIndex = "1111";
+  game.style.display = "block";
 }
 function gameHide() {
-  game.style.transition = "all 0.3s linear";
-  game.style.visibility = "hidden";
-  game.style.opacity = "0";
-  game.style.zIndex = "-1111";
+  game.style.display = "none";
 }
 
 var userExist = false;
@@ -100,6 +94,7 @@ function signUp() {
         setInterval(function () {
           gameShow();
         }, 3000);
+        game()
       }
     } else {
       userExist = false;
@@ -113,19 +108,19 @@ if (gameSignUpForm) {
   });
 }
 
-function makeBubble() {
-  var bubbles = "";
-  for (var i = 1; i <= 170; i++) {
-    var bubbleNumber = Math.floor(Math.random() * 10);
-    bubbles += `<div class="bubble">${bubbleNumber}</div>`;
+function game() {
+  function makeBubble() {
+    var bubbles = "";
+    for (var i = 1; i <= 170; i++) {
+      var bubbleNumber = Math.floor(Math.random() * 10);
+      bubbles += `<div class="bubble">${bubbleNumber}</div>`;
+    }
+    gameBody.innerHTML = bubbles;
   }
-  gameBody.innerHTML = bubbles;
-}
-makeBubble();
-var timerValue = 60;
+  makeBubble();
+  var timerValue = 60;
 
-function timerRunner() {
-  if (gameShow()) {
+  function timerRunner() {
     var timerInt = setInterval(function () {
       if (timerValue >= 0) {
         timerValue--;
@@ -135,11 +130,11 @@ function timerRunner() {
       }
     }, 1000);
   }
-}
-timerRunner();
+  timerRunner();
 
-function hitsChanger() {
-  var hitRandom = Math.floor(Math.random() * 10);
-  gameHit.textContent = hitRandom;
+  function hitsChanger() {
+    var hitRandom = Math.floor(Math.random() * 10);
+    gameHit.textContent = hitRandom;
+  }
+  hitsChanger();
 }
-hitsChanger();
