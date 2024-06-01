@@ -29,8 +29,8 @@ body {
 }
 .game {
   overflow: hidden;
-  width: 80%;
-  height: 80%;
+  width: 90%;
+  height: 90%;
   border-radius: 50px 0 0 0;
   background-color: #fff;
   filter: drop-shadow(5px 5px 100px #486848);
@@ -87,11 +87,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width:35px;
+  height:35px;
   background-color: #486848;
   color: #fff;
   border-radius: 50%;
+  font-size: 15px;
   font-weight: 500;
 }
 .bubble:hover {
