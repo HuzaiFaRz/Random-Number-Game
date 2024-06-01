@@ -28,6 +28,7 @@ body {
   background-color: rgb(155, 184, 155);
 }
 .game {
+  position: relative;
   overflow: hidden;
   width: 90%;
   height: 90%;
@@ -79,7 +80,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding: 20px;
+  padding: 5px;
   width: 100%;
   height: calc(100% - 100px);
 }
@@ -98,6 +99,39 @@ body {
 .bubble:hover {
   cursor: pointer;
   background-color: rgb(50, 75, 50);
+}
+
+
+.game-over{
+  text-align: center;
+  width: 100%;
+  font-size: 3vw;
+  color: red;
+}
+.final-score{
+  text-align: center;
+  width: 100%;
+  color: #486848;
+  font-weight: 900;
+  font-size: 2vw;
+}
+
+.again-play{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  width: 100%;
+  color: #486848;
+  font-weight: 900;
+  font-size: 2vw;
+  cursor: pointer;
+  display: none;
+}
+
+.again-play:hover{
+  text-decoration: underline;
 }
 
 @media (max-width: 800px) {
