@@ -5,9 +5,10 @@ var gameHit = document.querySelector("#game_hit");
 var gameTimer = document.querySelector("#game_timer");
 var gameScore = document.querySelector("#game_score");
 var againPlay = document.querySelector(".again-play");
+var gameEndContent = document.querySelector(".game-content");
+var gameScoreFinal = document.querySelector(".final-score");
 
 var gameScoreVal = 0;
-var bubbleNumber;
 var hitRandom = 0;
 var timerValue = 100;
 
@@ -38,14 +39,30 @@ function makeBubble() {
       bubbleNumber = Math.floor(Math.random() * 10);
     }
     bubbles += `<div class="bubble">${bubbleNumber}</div>`;
-    if (gameBody) {
-      gameBody.innerHTML = bubbles;
-    }
+  }
+
+  if (gameBody) {
+    gameBody.innerHTML = bubbles;
+    gameStart();
   }
 }
-
-makeBubble();
-var bubbledivs = document.querySelectorAll(".bubble");
+function gameStart() {
+  var bubbledivs = document.querySelectorAll(".bubble");
+  bubbledivs.forEach(function (t) {
+    t.addEventListener("click", function (m) {
+      var clickedNum = Number(m.target.textContent);
+      if (clickedNum === hitRandom) {
+        scoreIncrease();
+        hitsChanger();
+        makeBubble();
+        gameScore.style.color = "rgb(155, 184, 155)";
+        mainChangeColor();
+      } else {
+        gameScore.style.color = "red";
+      }
+    });
+  });
+}
 function timerRunner() {
   var timerInt = setInterval(function () {
     if (timerValue > 0) {
@@ -56,14 +73,13 @@ function timerRunner() {
       gameTimer.textContent = timerValue;
     } else {
       clearInterval(timerInt);
-      gameBody.innerHTML = `<h1 class='game-over'>Game Over</h1>
-      <span class='final-score'>Final Score: ${gameScoreVal}</span>`;
       gameHit.textContent = 0;
-      againPlay.style.display = "block";
+      gameBody.innerHTML = "";
+      gameEndContent.style.display = "flex";
+      gameScoreFinal.textContent = `Final Score: ${gameScoreVal}`;
     }
   }, 1000);
 }
-timerRunner();
 
 function hitsChanger() {
   if (gameScoreVal > 150) {
@@ -75,43 +91,14 @@ function hitsChanger() {
   } else if (gameScoreVal <= 50) {
     hitRandom = Math.floor(Math.random() * 10);
   }
-
   gameHit.textContent = hitRandom;
 }
-hitsChanger();
 
 function mainChangeColor() {
-  var randomColorCode = "#" + Math.floor(Math.random() * 580000);
+  var randomColorCode = "#" + Math.floor(Math.random() * 1000000);
+  main.style.transition = "background-color 0.3s linear";
   main.style.backgroundColor = randomColorCode;
 }
-
-gameBody.addEventListener("click", function (m) {
-  var clickedNum = Number(m.target.textContent);
-  if (clickedNum === hitRandom) {
-    scoreIncrease();
-    hitsChanger();
-    makeBubble();
-    gameScore.style.color = "rgb(155, 184, 155)";
-    mainChangeColor();
-  } else {
-    gameScore.style.color = "red";
-  }
-});
-
-// function gameStart() {
-//   Array.from(bubbledivs).forEach(function (t) {
-//     t.addEventListener("click", function (m) {
-//       var clickedNum = Number(m.target.textContent);
-//       if (clickedNum === hitRandom) {
-//         scoreIncrease();
-//         hitsChanger();
-//         makeBubble();
-//         gameScore.style.color = "rgb(155, 184, 155)";
-//         mainChangeColor();
-//       } else {
-//         gameScore.style.color = "red";
-//       }
-//     });
-//   });
-// }
-// gameStart();
+makeBubble();
+timerRunner();
+hitsChanger();
