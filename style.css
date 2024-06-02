@@ -38,8 +38,6 @@ body {
   border: 2px solid #486848;
 }
 
-
-
 .game_header {
   width: 100%;
   display: flex;
@@ -88,8 +86,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width:35px;
-  height:35px;
+  width: 35px;
+  height: 35px;
   background-color: #486848;
   color: #fff;
   border-radius: 50%;
@@ -101,14 +99,13 @@ body {
   background-color: rgb(50, 75, 50);
 }
 
-
-.game-over{
+.game-over {
   text-align: center;
   width: 100%;
   font-size: 3vw;
   color: red;
 }
-.final-score{
+.final-score {
   text-align: center;
   width: 100%;
   color: #486848;
@@ -116,11 +113,11 @@ body {
   font-size: 2vw;
 }
 
-.again-play{
+.again-play {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   text-align: center;
   width: 100%;
   color: #486848;
@@ -130,7 +127,7 @@ body {
   display: none;
 }
 
-.again-play:hover{
+.again-play:hover {
   text-decoration: underline;
 }
 
