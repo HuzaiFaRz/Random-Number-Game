@@ -10,7 +10,7 @@ var gameScoreFinal = document.querySelector(".final-score");
 
 var gameScoreVal = 0;
 var hitRandom = 0;
-var timerValue = 100;
+var timerValue = 60;
 
 function scoreIncrease() {
   gameScore.textContent = gameScoreVal += 10;

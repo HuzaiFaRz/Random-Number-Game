@@ -93,6 +93,10 @@ body {
   border-radius: 50%;
   font-size: 15px;
   font-weight: 500;
+  user-select: none !important;
+  -moz-user-select: none !important;
+  -webkit-user-drag: none !important;
+  -webkit-user-modify: read-only !important;
 }
 .bubble:hover {
   cursor: pointer;
