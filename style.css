@@ -9,6 +9,14 @@
   font-family: "Comfortaa", sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #486848;
+}
+
 ::selection {
   background-color: #486848;
   color: #fff;
@@ -29,7 +37,6 @@ body {
 }
 .game {
   position: relative;
-  overflow: hidden;
   width: 90%;
   height: 90%;
   border-radius: 50px 0 0 0;
@@ -81,6 +88,7 @@ body {
   padding: 5px;
   width: 100%;
   height: calc(100% - 100px);
+  overflow-y: scroll;
 }
 .bubble {
   display: flex;
@@ -167,7 +175,6 @@ body {
     padding: 5px 12px;
   }
   .game_body {
-    overflow: hidden;
     align-items: flex-start;
     gap: 8px;
     padding: 5px;
