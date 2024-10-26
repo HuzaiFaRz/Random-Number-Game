@@ -56,7 +56,6 @@ function gameStart() {
         hitsChanger();
         makeBubble();
         gameScore.style.color = "rgb(155, 184, 155)";
-        mainChangeColor();
       } else {
         gameScore.style.color = "red";
       }
@@ -94,11 +93,6 @@ function hitsChanger() {
   gameHit.textContent = hitRandom;
 }
 
-function mainChangeColor() {
-  var randomColorCode = "#" + Math.floor(Math.random() * 1000000);
-  main.style.transition = "background-color 0.3s linear";
-  main.style.backgroundColor = randomColorCode;
-}
 makeBubble();
 timerRunner();
 hitsChanger();
